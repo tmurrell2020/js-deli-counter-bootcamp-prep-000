@@ -18,14 +18,15 @@ function nowServing(katzDeli) {
   }
 }
 
-function currentLine(katzDeli) {
-  for (let i = 0; i < katzDeli.length; i++) {
-    line.push(``+[i+1]+`. ` + katzDeli[i])
-  }
-  if (katzDeli.length == 0) {
-    return "The line is currently empty.";
+function currentLine(katzDeliLine) {
+  if (katzDeliLine.length > 0) {
+    var output = "";
+    for(var i = 0; i < katzDeliLine.length; i++) {
+        output += (i + 1) + ". " + katzDeliLine[i] + ", ";
+      }
+    output = output.slice(0, -2);
+    return `The line is currently: ${output}`;
   } else {
-    return(`The line is currently:` + line);
+    return "The line is currently empty.";
   }
-
 }
